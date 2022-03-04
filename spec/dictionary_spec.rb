@@ -18,4 +18,8 @@ describe Dictionary do
     @dictionary.switch_language
     expect(@dictionary.language).to eq(:braille)
   end
+
+  it 'holds a dictionary of english-braille' do
+    expect(@dictionary.info.class).to eq(Hash)
+  end
 end
