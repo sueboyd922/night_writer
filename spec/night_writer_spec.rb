@@ -28,7 +28,6 @@ describe NightWriter do
     expect(@night_writer.braille.class).to eq(File)
   end
 
-
   it 'tells you what has been created' do
     expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 42 characters").to_stdout
   end

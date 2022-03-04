@@ -25,6 +25,9 @@ describe Dictionary do
 
   it 'can look up the letter in english' do
     expect(@dictionary.lookup("a")).to eq("O.....")
+    expect(@dictionary.lookup("g")).to eq("OOOO..")
+    expect(@dictionary.lookup("t")).to eq(".OOOO.")
+    expect(@dictionary.lookup("j")).to eq(".OOO..")
   end
 
   it 'can look up the letter in Braille' do
