@@ -6,5 +6,7 @@ class Dictionary
     @language = language
   end
 
-
+  def switch_language
+    @language = :braille
+  end
 end

@@ -15,7 +15,7 @@ describe Dictionary do
   end
 
   it 'can switch to Braille language' do
-    @dictionary.switch
+    @dictionary.switch_language
     expect(@dictionary.language).to eq(:braille)
   end
 end
