@@ -33,6 +33,9 @@ describe Dictionary do
   it 'can look up the letter in Braille' do
     @dictionary.switch_language
     expect(@dictionary.lookup(".OOOO.")).to eq("t")
+    expect(@dictionary.lookup("OOOOO.")).to eq("q")
+    expect(@dictionary.lookup("OO....")).to eq("c")
+    expect(@dictionary.lookup("O..OOO")).to eq("z")
   end
 
   it 'can switch languages back' do
