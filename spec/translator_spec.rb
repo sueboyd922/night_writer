@@ -9,4 +9,8 @@ describe Translator do
   it 'exists' do
     expect(@translator).to be_an_instance_of(Translator)
   end
+
+  it 'takes in a single message to translate' do
+    expect(@translator.message).to eq("Whats taters precious")
+  end
 end
