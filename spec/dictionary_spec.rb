@@ -23,7 +23,12 @@ describe Dictionary do
     expect(@dictionary.info.class).to eq(Hash)
   end
 
-  it 'can look up the corresponding letter' do
+  it 'can look up the letter in english' do
     expect(@dictionary.lookup("a")).to eq("O.....")
+  end
+
+  it 'can look up the letter in Braille' do
+    @dictionary.switch_language
+    expect(@dictionary.lookup(".OOOO.")).to eq("t")
   end
 end

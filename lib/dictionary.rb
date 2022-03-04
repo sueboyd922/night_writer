@@ -4,14 +4,16 @@ class Dictionary
 
   def initialize(language = :english)
     @language = language
+    @info = info
   end
 
   def switch_language
     @language = :braille
+    @info = @info.invert
   end
 
   def info
-    dictionary = {
+    {
       "a" => "O.....",
       "b" => "O.O...",
       "c" => "OO....",
@@ -20,6 +22,10 @@ class Dictionary
       "f" => "OOO...",
       "t" => ".OOOO."
     }
+  end
+
+  def lookup(letter)
+    @info[letter]
   end
 
 end
