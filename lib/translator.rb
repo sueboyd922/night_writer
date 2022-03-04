@@ -5,12 +5,17 @@ class Translator
 
   def initialize(message)
     @message = message
+    @dictionary = Dictionary.new
   end
 
   def breakdown
-    # require "pry"; binding.pry
     @message.split("")
   end
+
+  def translate
+    breakdown.map {|letter| @dictionary.lookup(letter.downcase)}
+  end
+
 
 
 

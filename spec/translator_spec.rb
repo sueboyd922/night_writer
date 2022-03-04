@@ -17,5 +17,14 @@ describe Translator do
   it 'can break down the message for translation' do
     expect(@translator.breakdown.class).to eq(Array)
     expect(@translator.breakdown.count).to eq(21)
+    @translator.translate
   end
+
+  it 'can translate each letter to braille' do
+    expect(@translator.translate.class).to eq(Array)
+    expect(@translator.translate[0]).to eq(".OOO.O")
+    expect(@translator.translate[3]).to eq(".OOOO.")
+    expect(@translator.translate.count).to eq(21)
+  end
+
 end

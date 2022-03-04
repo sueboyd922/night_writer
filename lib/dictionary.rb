@@ -44,7 +44,8 @@ class Dictionary
       "w" => ".OOO.O",
       "x" => "OO..OO",
       "y" => "OO.OOO",
-      "z" => "O..OOO"
+      "z" => "O..OOO",
+      " " => "......"
     }
   end
 
