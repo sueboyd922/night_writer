@@ -43,7 +43,4 @@ class NightWriter
   def print_update
     print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
   end
-
 end
-
-# NightWriter.new(ARGV[0])
