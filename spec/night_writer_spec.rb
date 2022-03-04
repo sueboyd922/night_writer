@@ -13,4 +13,9 @@ describe NightWriter do
     @night_writer.open_file
     expect(@night_writer.message.class).to eq(File)
   end
+
+  it 'reads a file' do
+    @night_writer.read_file
+    expect(@night_writer.message.class).to eq(String)
+  end
 end
