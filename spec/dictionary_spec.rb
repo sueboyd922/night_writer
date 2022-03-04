@@ -22,4 +22,8 @@ describe Dictionary do
   it 'holds a dictionary of english-braille' do
     expect(@dictionary.info.class).to eq(Hash)
   end
+
+  it 'can look up the corresponding letter' do
+    expect(@dictionary.lookup("a")).to eq("O.....")
+  end
 end
