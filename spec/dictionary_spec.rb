@@ -31,4 +31,12 @@ describe Dictionary do
     @dictionary.switch_language
     expect(@dictionary.lookup(".OOOO.")).to eq("t")
   end
+
+  it 'can switch languages back' do
+    expect(@dictionary.language).to eq(:english)
+    @dictionary.switch_language
+    expect(@dictionary.language).to eq(:braille)
+    @dictionary.switch_language
+    expect(@dictionary.language).to eq(:english)
+  end
 end

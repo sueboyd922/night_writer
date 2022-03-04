@@ -8,7 +8,12 @@ class Dictionary
   end
 
   def switch_language
-    @language = :braille
+    case @language
+    when :english
+      @language = :braille
+    when :braille
+      @language = :english
+    end
     @info = @info.invert
   end
 
