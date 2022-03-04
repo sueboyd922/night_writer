@@ -13,4 +13,9 @@ describe Translator do
   it 'takes in a single message to translate' do
     expect(@translator.message).to eq("Whats taters precious")
   end
+
+  it 'can break down the message for translation' do
+    expect(@translator.breakdown.class).to eq(Array)
+    expect(@translator.breakdown.count).to eq(21)
+  end
 end
