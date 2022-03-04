@@ -2,9 +2,11 @@ require 'rspec'
 require './lib/night_writer'
 
 describe NightWriter do
+  before (:each) do
+    @night_writer = NightWriter.new('message.txt')
+  end
 
   it 'exists' do
-    @night_writer = NightWriter.new('message.txt')
 
     expect(@night_writer).to be_an_instance_of(NightWriter)
   end
@@ -16,6 +18,6 @@ describe NightWriter do
 
   it 'reads a file' do
     @night_writer.read_file
-    expect(@night_writer.message.class).to eq(String)
+    expect(@night_writer.read_message.class).to eq(String)
   end
 end
