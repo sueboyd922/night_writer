@@ -3,10 +3,10 @@ require './lib/night_writer'
 
 describe NightWriter do
   before (:each) do
-    ARGV[1] = './spec/test_files/new_test_message.txt'
     ARGV[0] = './spec/test_files/test_message.txt'
-    # require "pry"; binding.pry
+    ARGV[1] = './spec/test_files/new_test_message.txt'
     @night_writer = NightWriter.new(ARGV[0])
+    # require "pry"; binding.pry
   end
 
   it 'exists' do
@@ -27,6 +27,10 @@ describe NightWriter do
     @night_writer.create_new_file
     expect(@night_writer.braille.class).to eq(File)
   end
-  #
-  # it 'transforms the message '
+
+
+  it 'tells you what has been created' do
+    expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 42 characters").to_stdout
+  end
+
 end

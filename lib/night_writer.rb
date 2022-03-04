@@ -41,7 +41,7 @@ class NightWriter
   end
 
   def print_update
-    puts "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
+    print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
   end
 
 end
