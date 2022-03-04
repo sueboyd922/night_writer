@@ -7,6 +7,11 @@ class Translator
     @message = message
   end
 
+  def breakdown
+    # require "pry"; binding.pry
+    @message.split("")
+  end
+
 
 
 
