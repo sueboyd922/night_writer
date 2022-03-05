@@ -34,9 +34,13 @@ class Translator
     end
   end
 
-  def print_new_message
+  def add_line_breaks
     create_braille_string.each do |line|
-      puts line
+      line.insert(-1, "\n")
     end
+  end
+
+  def printable_message
+    add_line_breaks.join
   end
 end

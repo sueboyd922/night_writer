@@ -8,14 +8,11 @@ class NightWriter
     @file = file
     @read_message = read_file.strip
     @braille = create_new_file
-    require "pry"; binding.pry
     @translator = Translator.new(@read_message)
     run
   end
 
   def run
-    # read_file
-    # create_new_file
     write_to_new_file
     print_update
   end
@@ -33,12 +30,14 @@ class NightWriter
   end
 
   def write_to_new_file
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
     @braille.write(new_message)
   end
 
   def new_message
+    # require "pry"; binding.pry
     send_out_message_for_translation
+    @translator.printable_message
   end
 
   def send_out_message_for_translation
