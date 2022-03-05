@@ -9,6 +9,7 @@ class Translator
     @top = []
     @middle = []
     @bottom = []
+    @lines = [@top, @middle, @bottom]
   end
 
   def breakdown
@@ -27,7 +28,9 @@ class Translator
     end
   end
 
-
-
-
+  def create_braille_string
+    @lines.map do |line|
+      line.flatten.join
+    end
+  end
 end
