@@ -2,7 +2,7 @@ require 'pry'
 require './lib/translator'
 
 class NightWriter
-  attr_reader :message, :read_message, :braille
+  attr_reader :file, :read_message, :braille
 
   def initialize(file)
     @file = file
@@ -30,12 +30,10 @@ class NightWriter
   end
 
   def write_to_new_file
-    # require "pry"; binding.pry
     @braille.write(new_message)
   end
 
   def new_message
-    # require "pry"; binding.pry
     send_out_message_for_translation
     @translator.printable_message
   end
