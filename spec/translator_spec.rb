@@ -37,4 +37,12 @@ describe Translator do
     expect(@translator.bottom.count).to eq(21)
   end
 
+  it 'joins all the braille together for printing' do
+    @translator.split_braille
+    @translator.create_braille_string
+    expect(@translator.top.length).to eq(42)
+    expect(@translator.middle.length).to eq(42)
+    expect(@translator.bottom.length).to eq(42)
+  end
+
 end
