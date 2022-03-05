@@ -43,7 +43,9 @@ describe Translator do
   end
 
   it 'can print the new message' do
-    expect{@translator.print_new_message}.to output("").to_stdout
+    @translator.split_braille
+    require "pry"; binding.pry
+    expect{@translator.print_new_message}.to output(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n").to_stdout
   end
 
 end

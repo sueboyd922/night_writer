@@ -33,4 +33,10 @@ class Translator
       line.flatten.join
     end
   end
+
+  def print_new_message
+    create_braille_string.each do |line|
+      puts line
+    end
+  end
 end
