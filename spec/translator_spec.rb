@@ -39,8 +39,11 @@ describe Translator do
 
   it 'joins all the braille together for printing' do
     @translator.split_braille
-
     expect(@translator.create_braille_string[0].length).to eq(42)
+  end
+
+  it 'can print the new message' do
+    expect{@translator.print_new_message}.to output("").to_stdout
   end
 
 end
