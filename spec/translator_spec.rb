@@ -30,11 +30,11 @@ describe Translator do
   it 'separates the braille letters into 3 rows for printing' do
     @translator.split_braille
     expect(@translator.top.class).to eq(Array)
-    expect(@translator.top.count).to eq(42)
+    expect(@translator.top.count).to eq(21)
     expect(@translator.middle.class).to eq(Array)
-    expect(@translator.middle.count).to eq(42)
+    expect(@translator.middle.count).to eq(21)
     expect(@translator.bottom.class).to eq(Array)
-    expect(@translator.bottom.count).to eq(42)
+    expect(@translator.bottom.count).to eq(21)
   end
 
 end
