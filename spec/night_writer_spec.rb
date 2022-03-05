@@ -15,7 +15,7 @@ describe NightWriter do
 
   it 'opens a file' do
     @night_writer.open_file
-    expect(@night_writer.message.class).to eq(File)
+    expect(@night_writer.open_file.class).to eq(File)
   end
 
   it 'reads a file' do
@@ -29,7 +29,7 @@ describe NightWriter do
   end
 
   it 'tells you what has been created' do
-    expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 42 characters").to_stdout
+    expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 41 characters").to_stdout
   end
 
 end
