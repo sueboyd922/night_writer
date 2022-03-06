@@ -16,6 +16,6 @@ describe BrailleTranslator do
 
   it 'can break down the message for translation' do
     expect(@translator.breakdown.class).to eq(Array)
-    expect(@translator.breakdown.count).to eq(8)
+    expect(@translator.breakdown.count).to eq(3)
   end
 end
