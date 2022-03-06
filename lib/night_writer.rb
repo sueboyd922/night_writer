@@ -34,15 +34,14 @@ class NightWriter
   end
 
   def new_message
-    send_out_message_for_translation
     @translator.printable_message
   end
 
-  def send_out_message_for_translation
-    @translator.split_braille
-    @translator.create_braille_string
-    @translator.adjust_for_character_count
-  end
+  # def send_out_message_for_translation
+  #   @translator.split_braille
+  #   @translator.create_braille_string
+  #   @translator.adjust_for_character_count
+  # end
 
   def print_update
     print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"

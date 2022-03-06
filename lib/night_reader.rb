@@ -1,8 +1,9 @@
 require 'pry'
 require './lib/translator'
+require './lib/braille_translator'
 
 class NightReader
-  attr_reader :file, :read_message, :braille
+  attr_reader :file, :read_message, :new_file
 
   def initialize(file)
     @incoming_file = file
@@ -18,7 +19,7 @@ class NightReader
   end
 
   def open_file
-     File.open(@file, 'r')
+     File.open(@incoming_file, 'r')
   end
 
   def read_file
@@ -31,6 +32,10 @@ class NightReader
 
   def write_to_new_file
     @new_file.write(new_message)
+  end
+
+  def new_message
+    @translator.printable_message
   end
 
   def print_update

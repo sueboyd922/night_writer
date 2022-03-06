@@ -45,9 +45,10 @@ class Translator
       @final_message << "\n"
       a += 40
     end
+    @final_message
   end
 
   def printable_message
-    @final_message.flatten.join
+    adjust_for_character_count.flatten.join
   end
 end

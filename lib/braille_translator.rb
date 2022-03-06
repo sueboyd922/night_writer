@@ -6,6 +6,7 @@ class BrailleTranslator
     @dictionary = Dictionary.new(:braille)
     @message = message
     @letters =[]
+    # require "pry"; binding.pry
   end
 
   def breakdown

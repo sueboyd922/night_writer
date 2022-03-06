@@ -45,7 +45,6 @@ describe Translator do
 
   it 'can print the new message' do
     @translator.split_braille
-    @translator.adjust_for_character_count
     expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n\n")
   end
 
