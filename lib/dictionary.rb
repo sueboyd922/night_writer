@@ -2,19 +2,18 @@
 class Dictionary
   attr_reader :language
 
-  def initialize(language = :english)
+  def initialize(language)
     @language = language
-    @info = info
+    @info = determine_dictionary
   end
 
-  def switch_language
+  def determine_dictionary
     case @language
     when :english
-      @language = :braille
+      info
     when :braille
-      @language = :english
+      info.invert
     end
-    @info = @info.invert
   end
 
   def info

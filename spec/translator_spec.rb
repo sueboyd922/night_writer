@@ -3,7 +3,7 @@ require './lib/translator'
 
 describe Translator do
   before (:each) do
-    @translator = Translator.new("Whats taters precious")
+    @translator = Translator.new("whats taters precious")
     # require "pry"; binding.pry
   end
 
@@ -12,7 +12,7 @@ describe Translator do
   end
 
   it 'takes in a single message to translate' do
-    expect(@translator.message).to eq("Whats taters precious")
+    expect(@translator.message).to eq("whats taters precious")
   end
 
   it 'can break down the message for translation' do

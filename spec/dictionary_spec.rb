@@ -3,24 +3,29 @@ require './lib/dictionary'
 
 describe Dictionary do
   before (:each) do
-    @dictionary = Dictionary.new
+    @dictionary = Dictionary.new(:english)
+    @dictionary2 = Dictionary.new(:braille)
   end
 
   it 'exists' do
     expect(@dictionary).to be_an_instance_of(Dictionary)
   end
 
-  it 'defaults to English language' do
+  it 'is initialized with a language' do
     expect(@dictionary.language).to eq(:english)
   end
 
-  it 'can switch to Braille language' do
-    @dictionary.switch_language
-    expect(@dictionary.language).to eq(:braille)
+  it 'can be used as a Braille to English dictionary too' do
+    expect(@dictionary2.language).to eq(:braille)
   end
 
   it 'holds a dictionary of english-braille' do
     expect(@dictionary.info.class).to eq(Hash)
+  end
+
+  it 'switches hash key/values based on which languge is being searched' do
+    expect(@dictionary.determine_dictionary).to eq(@dictionary.info)
+    expect(@dictionary2.determine_dictionary).to eq(@dictionary2.info.invert)
   end
 
   it 'can look up the letter in english' do
@@ -31,18 +36,17 @@ describe Dictionary do
   end
 
   it 'can look up the letter in Braille' do
-    @dictionary.switch_language
-    expect(@dictionary.lookup(".OOOO.")).to eq("t")
-    expect(@dictionary.lookup("OOOOO.")).to eq("q")
-    expect(@dictionary.lookup("OO....")).to eq("c")
-    expect(@dictionary.lookup("O..OOO")).to eq("z")
+    expect(@dictionary2.lookup(".OOOO.")).to eq("t")
+    expect(@dictionary2.lookup("OOOOO.")).to eq("q")
+    expect(@dictionary2.lookup("OO....")).to eq("c")
+    expect(@dictionary2.lookup("O..OOO")).to eq("z")
   end
 
-  it 'can switch languages back' do
-    expect(@dictionary.language).to eq(:english)
-    @dictionary.switch_language
-    expect(@dictionary.language).to eq(:braille)
-    @dictionary.switch_language
-    expect(@dictionary.language).to eq(:english)
-  end
+  # it 'can switch languages back' do
+  #   expect(@dictionary.language).to eq(:english)
+  #   @dictionary.switch_language
+  #   expect(@dictionary.language).to eq(:braille)
+  #   @dictionary.switch_language
+  #   expect(@dictionary.language).to eq(:english)
+  # end
 end

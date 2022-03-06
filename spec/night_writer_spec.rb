@@ -6,7 +6,6 @@ describe NightWriter do
     ARGV[0] = './spec/test_files/test_message.txt'
     ARGV[1] = './spec/test_files/new_test_message.txt'
     @night_writer = NightWriter.new(ARGV[0])
-    # require "pry"; binding.pry
   end
 
   it 'exists' do
@@ -31,5 +30,7 @@ describe NightWriter do
   it 'tells you what has been created' do
     expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 41 characters").to_stdout
   end
+
+  #test what actually gets written to file
 
 end
