@@ -18,4 +18,9 @@ describe BrailleTranslator do
     expect(@translator.breakdown.class).to eq(Array)
     expect(@translator.breakdown.count).to eq(3)
   end
+
+  it 'can group the message into braille letters' do
+    expect(@translator.group_braille.class).to eq(Array)
+    expect(@translator.group_braille.count).to eq(8)
+  end
 end
