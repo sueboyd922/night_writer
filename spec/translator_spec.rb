@@ -4,7 +4,7 @@ require './lib/translator'
 describe Translator do
   before (:each) do
     @translator = Translator.new("Whats taters precious")
-    require "pry"; binding.pry
+    # require "pry"; binding.pry
   end
 
   it 'exists' do
@@ -40,12 +40,13 @@ describe Translator do
 
   it 'joins all the braille together for printing' do
     @translator.split_braille
-    expect(@translator.create_braille_string[0].length).to eq(42)
+    expect(@translator.create_braille_string[0].length).to eq(21)
   end
 
   it 'can print the new message' do
     @translator.split_braille
-    expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n")
+    @translator.adjust_for_character_count
+    expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n\n")
   end
 
 end

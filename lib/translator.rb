@@ -47,14 +47,7 @@ class Translator
     end
   end
 
-  # def add_line_breaks
-  #   create_braille_string.each do |line|
-  #     line.insert(-1, "\n")
-  #   end
-  # end
-
   def printable_message
     @final_message.flatten.join
-    # add_line_break.join
   end
 end
