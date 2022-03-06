@@ -12,6 +12,7 @@ describe BrailleTranslator do
 
   it 'takes in a single message to translate' do
     expect(@translator.message).to eq("OOO..OO..OO.O..O\nO..OOO..OO.O.OO.\nO.O.O...O.O...O.")
+
   end
 
   it 'can break down the message for translation' do
@@ -20,7 +21,8 @@ describe BrailleTranslator do
   end
 
   it 'can group the message into braille letters' do
-    expect(@translator.group_braille.class).to eq(Array)
-    expect(@translator.group_braille.count).to eq(8)
+    @translator.group_braille
+    expect(@translator.letters.class).to eq(Array)
+    expect(@translator.letters.count).to eq(8)
   end
 end
