@@ -1,7 +1,7 @@
 require './lib/dictionary'
 
 class Translator
-  attr_reader :message, :top, :middle, :bottom
+  attr_reader :message, :top, :middle, :bottom, :final_message
 
   def initialize(message)
     @message = message
@@ -10,6 +10,7 @@ class Translator
     @middle = []
     @bottom = []
     @lines = [@top, @middle, @bottom]
+    @final_message = []
   end
 
   def breakdown
@@ -30,17 +31,23 @@ class Translator
 
   def create_braille_string
     @lines.map do |line|
-      line.flatten.join
+      line.flatten
     end
   end
 
-  def add_line_breaks
-    create_braille_string.each do |line|
-      line.insert(-1, "\n")
+  def adjust_for_character_count
+    a = 0
+    (create_braille_string[0].count.to_f / 40).ceil.times do
+      @lines.each do |line|
+        @final_message << line[a..a + 39]
+        @final_message << "\n"
+      end
+      @final_message << "\n"
+      a += 40
     end
   end
 
   def printable_message
-    add_line_breaks.join
+    @final_message.flatten.join
   end
 end

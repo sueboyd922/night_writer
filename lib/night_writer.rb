@@ -41,6 +41,7 @@ class NightWriter
   def send_out_message_for_translation
     @translator.split_braille
     @translator.create_braille_string
+    @translator.adjust_for_character_count
   end
 
   def print_update
