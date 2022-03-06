@@ -5,10 +5,10 @@ class NightReader
   attr_reader :file, :read_message, :braille
 
   def initialize(file)
-    @file = file
+    @incoming_file = file
     @read_message = read_file.strip
-    @braille = create_new_file
-    @translator = Translator.new(@read_message)
+    @new_file = create_new_file
+    @translator = BrailleTranslator.new(@read_message)
     run
   end
 
@@ -30,6 +30,10 @@ class NightReader
   end
 
   def write_to_new_file
-    @braille.write(new_message)
+    @new_file.write(new_message)
+  end
+
+  def print_update
+    print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
   end
 end

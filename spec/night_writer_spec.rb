@@ -24,7 +24,7 @@ describe NightWriter do
 
   it 'creates a new file' do
     @night_writer.create_new_file
-    expect(@night_writer.braille.class).to eq(File)
+    expect(@night_writer.new_file.class).to eq(File)
   end
 
   it 'tells you what has been created' do
