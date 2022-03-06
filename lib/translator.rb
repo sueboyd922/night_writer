@@ -5,7 +5,7 @@ class Translator
 
   def initialize(message)
     @message = message
-    @dictionary = Dictionary.new
+    @dictionary = Dictionary.new(:english)
     @top = []
     @middle = []
     @bottom = []
@@ -18,7 +18,7 @@ class Translator
   end
 
   def translate
-    breakdown.map {|letter| @dictionary.lookup(letter.downcase)}
+    breakdown.map {|letter| @dictionary.lookup(letter)}
   end
 
   def split_braille

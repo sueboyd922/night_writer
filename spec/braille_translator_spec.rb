@@ -25,4 +25,8 @@ describe BrailleTranslator do
     expect(@translator.letters.class).to eq(Array)
     expect(@translator.letters.count).to eq(8)
   end
+
+  it 'can translate the braille to english letters' do
+    expect(@translator.translate).to eq(["p", "o", "t", "a", "t", "o", "e", "s"])
+  end
 end
