@@ -3,9 +3,9 @@ require './lib/dictionary'
 class BrailleTranslator
   attr_reader :message, :letters
   def initialize(message)
+    @dictionary = Dictionary.new(:braille)
     @message = message
     @letters =[]
-    @dictionary = Dictionary.new(:braille)
   end
 
   def breakdown
@@ -26,12 +26,18 @@ class BrailleTranslator
       breakdown.each {|lines| @letters[index] << lines[a..a + 1]}
       a += 2
     end
-    # require "pry"; binding.pry
-    @letters.map {|line| line.join}
+    @letters
+  end
+
+  def join_braille_pieces
+    group_braille.map{|line| line.join}
   end
 
   def translate
-    group_braille.map {|letter| @dictionary.lookup(letter)}
+    join_braille_pieces.map {|letter| @dictionary.lookup(letter)}
   end
 
+  def printable_message
+    translate.flatten.join
+  end
 end

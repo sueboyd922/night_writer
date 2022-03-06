@@ -29,4 +29,8 @@ describe BrailleTranslator do
   it 'can translate the braille to english letters' do
     expect(@translator.translate).to eq(["p", "o", "t", "a", "t", "o", "e", "s"])
   end
+
+  it 'returns a printable message' do
+    expect(@translator.printable_message).to eq("potatoes")
+  end
 end
