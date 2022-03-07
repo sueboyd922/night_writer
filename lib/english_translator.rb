@@ -1,6 +1,7 @@
 require './lib/dictionary'
+require './lib/translator'
 
-class EnglishTranslator
+class EnglishTranslator < Translator
   attr_reader :message, :lines, :final_message
 
   def initialize(message)

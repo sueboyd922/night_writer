@@ -1,15 +1,17 @@
 require './lib/dictionary'
+require './lib/translator'
 
-class BrailleTranslator
+class BrailleTranslator < Translator
   attr_reader :message, :letters
   def initialize(message)
     @dictionary = Dictionary.new(:braille)
     @message = message
-    @letters =[]
     @top = []
     @middle = []
     @bottom = []
     @lines = [@top, @middle, @bottom]
+    @letters =[]
+    # require "pry"; binding.pry
     run
   end
 

@@ -4,7 +4,6 @@ require './lib/english_translator'
 describe EnglishTranslator do
   before (:each) do
     @translator = EnglishTranslator.new("whats taters precious")
-    # require "pry"; binding.pry
   end
 
   it 'exists' do
