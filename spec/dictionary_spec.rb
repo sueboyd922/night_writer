@@ -46,4 +46,9 @@ describe Dictionary do
     expect(@dictionary.lookup("mm")).to eq(nil)
     expect(@dictionary2.lookup("OOOOOO")).to eq(nil)
   end
+
+  it 'can work with capitals' do
+    expect(@dictionary.lookup("A")).to eq(".....OO.....")
+    expect(@dictionary.lookup("X")).to eq(".....OOO..OO")
+  end
 end
