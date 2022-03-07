@@ -30,6 +30,7 @@ class Translator
   end
 
   def create_braille_string
+    split_braille
     @lines.map do |line|
       line.flatten
     end

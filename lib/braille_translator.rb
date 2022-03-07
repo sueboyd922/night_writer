@@ -6,15 +6,42 @@ class BrailleTranslator
     @dictionary = Dictionary.new(:braille)
     @message = message
     @letters =[]
-    # require "pry"; binding.pry
+    @top = []
+    @middle = []
+    @bottom = []
+    @lines = [@top, @middle, @bottom]
+    # run
+    require "pry"; binding.pry
+  end
+
+  def run
+    breakdown
+    account_for_multiple_lines
+    prepare_strings
+    num_of_letters
   end
 
   def breakdown
     @message.split("\n")
   end
 
+  def account_for_multiple_lines
+    remove_extra_lines = breakdown.reject {|string| string == "" }
+    index = 0
+    (remove_extra_lines.count / 3).times do
+      @top << remove_extra_lines[index]
+      @middle << remove_extra_lines[index + 1]
+      @bottom << remove_extra_lines[index + 2]
+      index += 3
+    end
+  end
+
+  def prepare_strings
+    @lines = @lines.map {|line| line.flatten.join}
+  end
+
   def num_of_letters
-    (breakdown[0].length / 2).times do
+    (@lines[0].length / 2).times do
       @letters << []
     end
   end
@@ -22,16 +49,17 @@ class BrailleTranslator
   def group_braille
     index = -1
     a = 0
-    num_of_letters.times do
+    (@lines[0].length / 2).times do
       index += 1
-      breakdown.each {|lines| @letters[index] << lines[a..a + 1]}
+      @lines.each do |line|
+        @letters[index] << line[a..a + 1]
+      end
       a += 2
     end
-    @letters
   end
 
   def join_braille_pieces
-    group_braille.map{|line| line.join}
+    @letters.map{|line| line.join}
   end
 
   def translate
