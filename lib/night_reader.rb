@@ -19,13 +19,13 @@ class NightReader
   #   print_update
   # end
 
-  def open_file
-     File.open(@incoming_file, 'r')
-  end
-
-  def read_file
-    open_file.read
-  end
+  # def open_file
+  #    File.open(@incoming_file, 'r')
+  # end
+  #
+  # def read_file
+  #   open_file.read
+  # end
 
   def create_new_file
     File.open(ARGV[1], 'w')
