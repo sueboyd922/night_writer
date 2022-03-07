@@ -10,8 +10,7 @@ class BrailleTranslator
     @middle = []
     @bottom = []
     @lines = [@top, @middle, @bottom]
-    # run
-    require "pry"; binding.pry
+    run
   end
 
   def run
@@ -19,6 +18,7 @@ class BrailleTranslator
     account_for_multiple_lines
     prepare_strings
     num_of_letters
+    group_braille
   end
 
   def breakdown

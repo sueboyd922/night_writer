@@ -31,7 +31,6 @@ class NightReader
   end
 
   def write_to_new_file
-    require "pry"; binding.pry
     @new_file.write(new_message)
   end
 
