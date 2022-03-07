@@ -34,12 +34,12 @@ describe EnglishTranslator do
     @translator.translate
     @translator.split_braille
     # require "pry"; binding.pry
-    expect(@translator.lines[0].class).to eq(Array)
-    expect(@translator.lines[0].count).to eq(21)
-    expect(@translator.lines[1].class).to eq(Array)
-    expect(@translator.lines[1].count).to eq(21)
-    expect(@translator.lines[2].class).to eq(Array)
-    expect(@translator.lines[2].count).to eq(21)
+    expect(@translator.message[0].class).to eq(Array)
+    expect(@translator.message[0].count).to eq(21)
+    expect(@translator.message[1].class).to eq(Array)
+    expect(@translator.message[1].count).to eq(21)
+    expect(@translator.message[2].class).to eq(Array)
+    expect(@translator.message[2].count).to eq(21)
   end
 
   it 'joins all the braille together for printing' do
@@ -47,8 +47,8 @@ describe EnglishTranslator do
     @translator.translate
     @translator.split_braille
     @translator.create_braille_string
-    expect(@translator.lines.count).to eq(3)
-    expect(@translator.lines[0].length).to eq(21)
+    expect(@translator.message.count).to eq(3)
+    expect(@translator.message[0].length).to eq(21)
   end
 
   it 'can print the new message' do

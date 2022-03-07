@@ -2,18 +2,7 @@ require './lib/dictionary'
 require './lib/translator'
 
 class EnglishTranslator < Translator
-  # attr_reader :message, :lines, :letters
 
-  # def initialize(message)
-  #   @message = message
-  #   @dictionary = Dictionary.new(:english)
-  #   @top = []
-  #   @middle = []
-  #   @bottom = []
-  #   @lines = [@top, @middle, @bottom]
-  #   @letters = []
-  #   run
-  # end
   def create_dictionary
     @dictionary = Dictionary.new(:english)
   end
@@ -36,18 +25,19 @@ class EnglishTranslator < Translator
       @middle << braille[2..3]
       @bottom << braille[4..5]
     end
+    @message = [@top, @middle, @bottom]
   end
 
   def create_braille_string
-    @lines = @lines.map do |line|
+    @message = @message.map do |line|
       line.flatten
     end
   end
 
   def adjust_for_character_count
     a = 0
-    (@lines[0].count.to_f / 40).ceil.times do
-      @lines.each do |line|
+    (@message[0].count.to_f / 40).ceil.times do
+      @message.each do |line|
         @letters << line[a..a + 39]
         @letters << "\n"
       end

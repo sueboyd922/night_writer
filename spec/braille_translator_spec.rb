@@ -13,7 +13,6 @@ describe BrailleTranslator do
 
   it 'takes in a single message to translate' do
     expect(@translator.message).to eq("OOO..OO..OO.O..O\nO..OOO..OO.O.OO.\nO.O.O...O.O...O.")
-
   end
 
   it 'can break down the message for translation' do
@@ -26,8 +25,8 @@ describe BrailleTranslator do
     @translator.breakdown("\n")
     @translator.account_for_multiple_lines
     @translator.prepare_strings
-    expect(@translator.lines.count).to eq(3)
-    expect(@translator.lines[0].length).to eq(16)
+    expect(@translator.message.count).to eq(3)
+    expect(@translator.message[0].length).to eq(16)
   end
 
 
@@ -42,7 +41,6 @@ describe BrailleTranslator do
   end
 
   it 'can translate the braille to english letters' do
-    # require "pry"; binding.pry
     @translator.breakdown("\n")
     @translator.account_for_multiple_lines
     @translator.prepare_strings
@@ -62,7 +60,7 @@ describe BrailleTranslator do
     @translator2.breakdown("\n")
     expect(@translator2.message.count).to eq(7)
     @translator2.account_for_multiple_lines
-    expect(@translator2.lines.count).to eq(3)
+    expect(@translator2.message.count).to eq(3)
     @translator2.prepare_strings
     expect(@translator2.num_of_letters).to eq(43)
     @translator2.group_braille

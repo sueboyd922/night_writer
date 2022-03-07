@@ -9,7 +9,6 @@ class Translator
     @top = []
     @middle = []
     @bottom = []
-    @lines = [@top, @middle, @bottom]
     @letters =[]
   end
 
