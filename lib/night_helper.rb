@@ -13,4 +13,16 @@ module NightHelper
     open_file.read
   end
 
+  def create_new_file
+    File.open(ARGV[1], 'w')
+  end
+
+  def write_to_new_file
+    @new_file.write(new_message)
+  end
+
+  def new_message
+    @translator.printable_message
+  end
+
 end
