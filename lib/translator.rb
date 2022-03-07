@@ -21,7 +21,7 @@ class Translator
   # end
 
   def printable_message
-    @letters.flatten.join
+    @message.flatten.join
   end
 
 end

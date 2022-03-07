@@ -53,6 +53,7 @@ describe EnglishTranslator do
 
   it 'can print the new message' do
     @translator.run
+    # require "pry"; binding.pry
     expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n\n")
   end
 

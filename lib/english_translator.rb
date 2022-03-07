@@ -13,6 +13,7 @@ class EnglishTranslator < Translator
     split_braille
     create_braille_string
     adjust_for_character_count
+    set_message_to_letters
   end
 
   def translate
@@ -44,5 +45,9 @@ class EnglishTranslator < Translator
       @letters << "\n"
       a += 40
     end
+  end
+
+  def set_message_to_letters
+    @message = @letters
   end
 end
