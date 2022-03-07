@@ -1,47 +1,40 @@
 require './lib/dictionary'
+require './lib/translator'
 
-class BrailleTranslator
-  attr_reader :message, :letters
-  def initialize(message)
+class BrailleTranslator < Translator
+
+  def create_dictionary
     @dictionary = Dictionary.new(:braille)
-    @message = message
-    @letters =[]
-    @top = []
-    @middle = []
-    @bottom = []
-    @lines = [@top, @middle, @bottom]
-    run
   end
 
   def run
-    breakdown
+    breakdown("\n")
     account_for_multiple_lines
     prepare_strings
     num_of_letters
     group_braille
-  end
-
-  def breakdown
-    @message.split("\n")
+    join_braille_pieces
+    translate
   end
 
   def account_for_multiple_lines
-    remove_extra_lines = breakdown.reject {|string| string == "" }
+    @message = @message.reject {|string| string == "" }
     index = 0
-    (remove_extra_lines.count / 3).times do
-      @top << remove_extra_lines[index]
-      @middle << remove_extra_lines[index + 1]
-      @bottom << remove_extra_lines[index + 2]
+    (@message.count / 3).times do
+      @top << @message[index]
+      @middle << @message[index + 1]
+      @bottom << @message[index + 2]
       index += 3
     end
+    @message = [@top, @middle, @bottom]
   end
 
   def prepare_strings
-    @lines = @lines.map {|line| line.flatten.join}
+    @message = @message.map {|line| line.flatten.join}
   end
 
   def num_of_letters
-    (@lines[0].length / 2).times do
+    (@message[0].length / 2).times do
       @letters << []
     end
   end
@@ -49,9 +42,9 @@ class BrailleTranslator
   def group_braille
     index = -1
     a = 0
-    (@lines[0].length / 2).times do
+    (@message[0].length / 2).times do
       index += 1
-      @lines.each do |line|
+      @message.each do |line|
         @letters[index] << line[a..a + 1]
       end
       a += 2
@@ -59,14 +52,6 @@ class BrailleTranslator
   end
 
   def join_braille_pieces
-    @letters.map{|line| line.join}
-  end
-
-  def translate
-    join_braille_pieces.map {|letter| @dictionary.lookup(letter)}
-  end
-
-  def printable_message
-    translate.flatten.join
+    @message = @letters.map{|line| line.join}
   end
 end
