@@ -31,6 +31,7 @@ class Night
   end
 
   def new_message
+    @translator.run
     @translator.printable_message
   end
 

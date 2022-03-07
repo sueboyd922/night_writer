@@ -11,11 +11,9 @@ class Translator
     @bottom = []
     @lines = [@top, @middle, @bottom]
     @letters =[]
-    # run
   end
 
   def breakdown(split)
-    # require "pry"; binding.pry
     @message = @message.split(split)
   end
 
