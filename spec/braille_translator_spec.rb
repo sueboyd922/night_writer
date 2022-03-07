@@ -47,7 +47,6 @@ describe BrailleTranslator do
     @translator.num_of_letters
     @translator.group_braille
     @translator.join_braille_pieces
-    # require "pry"; binding.pry
     @translator.translate
     expect(@translator.message).to eq(["p", "o", "t", "a", "t", "o", "e", "s"])
   end

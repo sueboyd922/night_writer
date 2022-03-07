@@ -16,10 +16,6 @@ class EnglishTranslator < Translator
     set_message_to_letters
   end
 
-  def translate
-    @message = @message.map {|letter| @dictionary.lookup(letter)}
-  end
-
   def split_braille
     @message.each do |braille|
       @top << braille[0..1]

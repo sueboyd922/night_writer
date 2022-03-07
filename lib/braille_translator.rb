@@ -17,7 +17,6 @@ class BrailleTranslator < Translator
     translate
   end
 
-
   def account_for_multiple_lines
     @message = @message.reject {|string| string == "" }
     index = 0
@@ -54,9 +53,5 @@ class BrailleTranslator < Translator
 
   def join_braille_pieces
     @message = @letters.map{|line| line.join}
-  end
-
-  def translate
-    @message = @message.map {|letter| @dictionary.lookup(letter)}
   end
 end
