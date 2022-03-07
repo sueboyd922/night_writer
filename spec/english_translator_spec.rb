@@ -15,20 +15,25 @@ describe EnglishTranslator do
   end
 
   it 'can break down the message for translation' do
-    expect(@translator.breakdown.class).to eq(Array)
-    expect(@translator.breakdown.count).to eq(21)
-    @translator.translate
+    @translator.breakdown("")
+    expect(@translator.message.class).to eq(Array)
+    expect(@translator.message.count).to eq(21)
   end
 
   it 'can translate each letter to braille' do
-    expect(@translator.translate.class).to eq(Array)
-    expect(@translator.translate[0]).to eq(".OOO.O")
-    expect(@translator.translate[3]).to eq(".OOOO.")
-    expect(@translator.translate.count).to eq(21)
+    @translator.breakdown("")
+    @translator.translate
+    expect(@translator.message.class).to eq(Array)
+    expect(@translator.message[0]).to eq(".OOO.O")
+    expect(@translator.message[3]).to eq(".OOOO.")
+    expect(@translator.message.count).to eq(21)
   end
 
   it 'separates the braille letters into 3 rows for printing' do
+    @translator.breakdown("")
+    @translator.translate
     @translator.split_braille
+    # require "pry"; binding.pry
     expect(@translator.lines[0].class).to eq(Array)
     expect(@translator.lines[0].count).to eq(21)
     expect(@translator.lines[1].class).to eq(Array)
@@ -38,12 +43,16 @@ describe EnglishTranslator do
   end
 
   it 'joins all the braille together for printing' do
-    expect(@translator.split_braille.count).to eq(21)
-    expect(@translator.create_braille_string[0].length).to eq(21)
+    @translator.breakdown("")
+    @translator.translate
+    @translator.split_braille
+    @translator.create_braille_string
+    expect(@translator.lines.count).to eq(3)
+    expect(@translator.lines[0].length).to eq(21)
   end
 
   it 'can print the new message' do
-    @translator.split_braille
+    @translator.run
     expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n\n")
   end
 

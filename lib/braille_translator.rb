@@ -2,33 +2,37 @@ require './lib/dictionary'
 require './lib/translator'
 
 class BrailleTranslator < Translator
-  attr_reader :message, :letters
-  def initialize(message)
+  # attr_reader :message, :letters, :lines
+  # def initialize(message)
+  #   @dictionary = Dictionary.new(:braille)
+  #   @message = message
+  #   @top = []
+  #   @middle = []
+  #   @bottom = []
+  #   @lines = [@top, @middle, @bottom]
+  #   @letters =[]
+  #   # require "pry"; binding.pry
+  #   run
+  # end
+
+  def create_dictionary
     @dictionary = Dictionary.new(:braille)
-    @message = message
-    @top = []
-    @middle = []
-    @bottom = []
-    @lines = [@top, @middle, @bottom]
-    @letters =[]
-    # require "pry"; binding.pry
-    run
   end
 
   def run
-    breakdown
+    breakdown("\n")
     account_for_multiple_lines
     prepare_strings
     num_of_letters
     group_braille
   end
 
-  def breakdown
-    @message.split("\n")
-  end
+  # def breakdown
+  #   @message.split("\n")
+  # end
 
   def account_for_multiple_lines
-    remove_extra_lines = breakdown.reject {|string| string == "" }
+    remove_extra_lines = @message.reject {|string| string == "" }
     index = 0
     (remove_extra_lines.count / 3).times do
       @top << remove_extra_lines[index]
