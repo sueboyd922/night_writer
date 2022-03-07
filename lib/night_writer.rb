@@ -1,5 +1,5 @@
 require 'pry'
-require './lib/translator'
+require './lib/english_translator'
 
 class NightWriter
   attr_reader :file, :read_message, :new_file
@@ -8,7 +8,7 @@ class NightWriter
     @incoming_file = file
     @read_message = read_file.strip
     @new_file = create_new_file
-    @translator = Translator.new(@read_message)
+    @translator = EnglishTranslator.new(@read_message)
     run
   end
 

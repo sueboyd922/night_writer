@@ -1,5 +1,4 @@
 require 'pry'
-require './lib/translator'
 require './lib/braille_translator'
 
 class NightReader

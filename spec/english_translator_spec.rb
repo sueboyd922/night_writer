@@ -1,14 +1,14 @@
 require 'rspec'
-require './lib/translator'
+require './lib/english_translator'
 
-describe Translator do
+describe EnglishTranslator do
   before (:each) do
-    @translator = Translator.new("whats taters precious")
+    @translator = EnglishTranslator.new("whats taters precious")
     # require "pry"; binding.pry
   end
 
   it 'exists' do
-    expect(@translator).to be_an_instance_of(Translator)
+    expect(@translator).to be_an_instance_of(EnglishTranslator)
   end
 
   it 'takes in a single message to translate' do
