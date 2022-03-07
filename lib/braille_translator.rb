@@ -25,6 +25,8 @@ class BrailleTranslator < Translator
     prepare_strings
     num_of_letters
     group_braille
+    join_braille_pieces
+    translate
   end
 
   # def breakdown
@@ -32,12 +34,12 @@ class BrailleTranslator < Translator
   # end
 
   def account_for_multiple_lines
-    remove_extra_lines = @message.reject {|string| string == "" }
+    @message = @message.reject {|string| string == "" }
     index = 0
-    (remove_extra_lines.count / 3).times do
-      @top << remove_extra_lines[index]
-      @middle << remove_extra_lines[index + 1]
-      @bottom << remove_extra_lines[index + 2]
+    (@message.count / 3).times do
+      @top << @message[index]
+      @middle << @message[index + 1]
+      @bottom << @message[index + 2]
       index += 3
     end
   end
@@ -65,14 +67,14 @@ class BrailleTranslator < Translator
   end
 
   def join_braille_pieces
-    @letters.map{|line| line.join}
+    @letters = @letters.map{|line| line.join}
   end
 
   def translate
-    join_braille_pieces.map {|letter| @dictionary.lookup(letter)}
+    @letters = @letters.map {|letter| @dictionary.lookup(letter)}
   end
 
   def printable_message
-    translate.flatten.join
+    @letters.flatten.join
   end
 end

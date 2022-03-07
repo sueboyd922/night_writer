@@ -16,21 +16,43 @@ describe BrailleTranslator do
   end
 
   it 'can break down the message for translation' do
-    expect(@translator.breakdown.class).to eq(Array)
-    expect(@translator.breakdown.count).to eq(3)
+    @translator.breakdown("\n")
+    expect(@translator.message.class).to eq(Array)
+    expect(@translator.message.count).to eq(3)
   end
 
+  it 'gets the strings put together into 3 arrays' do
+    @translator.breakdown("\n")
+    @translator.account_for_multiple_lines
+    @translator.prepare_strings
+    expect(@translator.lines.count).to eq(3)
+    expect(@translator.lines[0].length).to eq(16)
+  end
+
+
   it 'can group the message into braille letters' do
+    @translator.breakdown("\n")
+    @translator.account_for_multiple_lines
+    @translator.prepare_strings
+    @translator.num_of_letters
     @translator.group_braille
     expect(@translator.letters.class).to eq(Array)
     expect(@translator.letters.count).to eq(8)
   end
 
   it 'can translate the braille to english letters' do
-    expect(@translator.translate).to eq(["p", "o", "t", "a", "t", "o", "e", "s"])
+    @translator.breakdown("\n")
+    @translator.account_for_multiple_lines
+    @translator.prepare_strings
+    @translator.num_of_letters
+    @translator.group_braille
+    @translator.join_braille_pieces
+    @translator.translate
+    expect(@translator.letters).to eq(["p", "o", "t", "a", "t", "o", "e", "s"])
   end
 
   it 'returns a printable message' do
+    @translator.run
     expect(@translator.printable_message).to eq("potatoes")
   end
 end

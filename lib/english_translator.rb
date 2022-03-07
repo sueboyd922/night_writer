@@ -23,6 +23,7 @@ class EnglishTranslator < Translator
     translate
     split_braille
     create_braille_string
+    adjust_for_character_count
   end
 
   # def breakdown
@@ -57,10 +58,9 @@ class EnglishTranslator < Translator
       @letters << "\n"
       a += 40
     end
-    @letters
   end
 
   def printable_message
-    adjust_for_character_count.flatten.join
+    @letters.flatten.join
   end
 end
