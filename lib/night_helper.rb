@@ -24,5 +24,9 @@ module NightHelper
   def new_message
     @translator.printable_message
   end
+  
+  def print_update
+    print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
+  end
 
 end

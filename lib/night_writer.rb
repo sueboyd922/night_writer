@@ -45,7 +45,7 @@ class NightWriter
   #   @translator.adjust_for_character_count
   # end
 
-  def print_update
-    print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
-  end
+  # def print_update
+  #   print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
+  # end
 end
