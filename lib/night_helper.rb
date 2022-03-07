@@ -1,4 +1,13 @@
-module NightHelper
+class Night
+  attr_reader :file, :read_message, :new_file
+
+  def initialize(file)
+    @incoming_file = file
+    @read_message = read_file.strip
+    @new_file = create_new_file
+    create_translator
+    run
+  end
 
   def run
     write_to_new_file
@@ -24,7 +33,7 @@ module NightHelper
   def new_message
     @translator.printable_message
   end
-  
+
   def print_update
     print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
   end
