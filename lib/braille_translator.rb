@@ -16,6 +16,7 @@ class BrailleTranslator < Translator
     join_braille_pieces
     translate
   end
+  
 
   def account_for_multiple_lines
     @message = @message.reject {|string| string == "" }
