@@ -42,11 +42,8 @@ describe Dictionary do
     expect(@dictionary2.lookup("O..OOO")).to eq("z")
   end
 
-  # it 'can switch languages back' do
-  #   expect(@dictionary.language).to eq(:english)
-  #   @dictionary.switch_language
-  #   expect(@dictionary.language).to eq(:braille)
-  #   @dictionary.switch_language
-  #   expect(@dictionary.language).to eq(:english)
-  # end
+  it 'returns nil if the letter is not in the dictionary' do
+    expect(@dictionary.lookup("mm")).to eq(nil)
+    expect(@dictionary2.lookup("OOOOOO")).to eq(nil)
+  end
 end

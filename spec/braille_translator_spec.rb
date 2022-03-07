@@ -29,7 +29,6 @@ describe BrailleTranslator do
     expect(@translator.message[0].length).to eq(16)
   end
 
-
   it 'can group the message into braille letters' do
     @translator.breakdown("\n")
     @translator.account_for_multiple_lines
