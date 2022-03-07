@@ -1,14 +1,15 @@
 require 'pry'
 require './lib/translator'
+require './lib/braille_translator'
 
-class NightWriter
+class NightReader
   attr_reader :file, :read_message, :new_file
 
   def initialize(file)
     @incoming_file = file
     @read_message = read_file.strip
     @new_file = create_new_file
-    @translator = Translator.new(@read_message)
+    @translator = BrailleTranslator.new(@read_message)
     run
   end
 
@@ -36,12 +37,6 @@ class NightWriter
   def new_message
     @translator.printable_message
   end
-
-  # def send_out_message_for_translation
-  #   @translator.split_braille
-  #   @translator.create_braille_string
-  #   @translator.adjust_for_character_count
-  # end
 
   def print_update
     print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"

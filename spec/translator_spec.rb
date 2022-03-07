@@ -30,22 +30,21 @@ describe Translator do
 
   it 'separates the braille letters into 3 rows for printing' do
     @translator.split_braille
-    expect(@translator.top.class).to eq(Array)
-    expect(@translator.top.count).to eq(21)
-    expect(@translator.middle.class).to eq(Array)
-    expect(@translator.middle.count).to eq(21)
-    expect(@translator.bottom.class).to eq(Array)
-    expect(@translator.bottom.count).to eq(21)
+    expect(@translator.lines[0].class).to eq(Array)
+    expect(@translator.lines[0].count).to eq(21)
+    expect(@translator.lines[1].class).to eq(Array)
+    expect(@translator.lines[1].count).to eq(21)
+    expect(@translator.lines[2].class).to eq(Array)
+    expect(@translator.lines[2].count).to eq(21)
   end
 
   it 'joins all the braille together for printing' do
-    @translator.split_braille
+    expect(@translator.split_braille.count).to eq(21)
     expect(@translator.create_braille_string[0].length).to eq(21)
   end
 
   it 'can print the new message' do
     @translator.split_braille
-    @translator.adjust_for_character_count
     expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n\n")
   end
 

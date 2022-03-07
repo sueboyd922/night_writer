@@ -1,4 +1,16 @@
-OOO..OO..OO.O..O
-O..OOO..OO.O.OO.
-O.O.O...O.O...O.
+O.OOO...O.O..OOOO..O..OOO.OO...OOO...OO.O...OO.OOOOOO.O...O.OO...OO.O...OO.OOOO.
+.O.O.O..O.OOO.OOOOOO...O...O..O..O..OOOO.O....O..O.OO..O...OO...OOOO.O...OO.OOOO
+O.O.......O.......O.......OO....O...O.......O.......O.....O.....O.......O.......
+
+.O...O.OO...OOO.O.OO..O.O.OO.O..OOO..O..O.OO...OO...OO.OOOO..O..O.O.OOO....OO...
+OO..OOOO.O...O.O...O..O..O.OO...OO.OOO....O...OO.O..O.O.OOOOOO..O.........OO.O..
+O...O..OO...............O.OOO.....O.O...OOO...O.O...........O.........O...O.O...
+
+O.O.OOO....OO.O.OO..OOO.OOO.OO..O.O.OOO...O..OO.O.O...OOO.O..O...OO.O..OO....O.O
+O.........OOOO.O.O..O......O.O...O....OO...OOOOO.OOO...OOO.OOO..OOOO.OO.OO..O.OO
+......O...O.....OO........................O.O.....O.....O....O..O.......O...O..O
+
+O.O.OO.O..O.OOOO..O.OOOOO.O..O
+.OOO.OO......O.O....O.O.O..OO.
+O.O...O.....O.......O.O.O...O.
 
