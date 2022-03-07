@@ -26,16 +26,12 @@ class EnglishTranslator < Translator
     adjust_for_character_count
   end
 
-  # def breakdown
-  #   @message.split("")
-  # end
-
   def translate
     @message = @message.map {|letter| @dictionary.lookup(letter)}
   end
 
   def split_braille
-    @message = @message.each do |braille|
+    @message.each do |braille|
       @top << braille[0..1]
       @middle << braille[2..3]
       @bottom << braille[4..5]
@@ -58,9 +54,5 @@ class EnglishTranslator < Translator
       @letters << "\n"
       a += 40
     end
-  end
-
-  def printable_message
-    @letters.flatten.join
   end
 end

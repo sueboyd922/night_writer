@@ -17,4 +17,12 @@ class Translator
     @message = @message.split(split)
   end
 
+  # def translate(input)
+  #   @letters = @letters.map {|letter| @dictionary.lookup(letter)}
+  # end
+
+  def printable_message
+    @letters.flatten.join
+  end
+
 end

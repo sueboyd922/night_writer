@@ -29,10 +29,6 @@ class BrailleTranslator < Translator
     translate
   end
 
-  # def breakdown
-  #   @message.split("\n")
-  # end
-
   def account_for_multiple_lines
     @message = @message.reject {|string| string == "" }
     index = 0
@@ -74,7 +70,7 @@ class BrailleTranslator < Translator
     @letters = @letters.map {|letter| @dictionary.lookup(letter)}
   end
 
-  def printable_message
-    @letters.flatten.join
-  end
+  # def printable_message
+  #   @letters.flatten.join
+  # end
 end
