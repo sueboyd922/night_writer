@@ -4,6 +4,7 @@ require './lib/english_translator'
 describe EnglishTranslator do
   before (:each) do
     @translator = EnglishTranslator.new("whats taters precious")
+    @translator2 = EnglishTranslator.new("HI Frodo")
   end
 
   it 'exists' do
@@ -53,8 +54,13 @@ describe EnglishTranslator do
 
   it 'can print the new message' do
     @translator.run
-    # require "pry"; binding.pry
     expect(@translator.printable_message).to eq(".OO.O..O.O...OO..OO.O..O..OOO.O.OO.OO.O..O\nOOOO..OOO...OO..OO.OOOO...O.OO.O..O..O..O.\n.O....O.O...O...O...O.O...O.O.......O.OOO.\n\n")
+  end
+
+  it 'can print in capitals' do
+    @translator2 = EnglishTranslator.new("HI Frodo")
+    @translator2.run
+    expect(@translator2.printable_message).to eq("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
   end
 
 end

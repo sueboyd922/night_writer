@@ -15,6 +15,7 @@ class BrailleTranslator < Translator
     group_braille
     join_braille_pieces
     translate
+    capitals
   end
 
   def account_for_multiple_lines
@@ -54,4 +55,20 @@ class BrailleTranslator < Translator
   def join_braille_pieces
     @message = @letters.map{|line| line.join}
   end
+
+  def capitals
+    @new_message = []
+    index = 0
+    (@message.count).times do
+      if @message[index] == nil && !@message[index + 1].nil?
+        @new_message << @message[index + 1].upcase
+        index += 2
+      else
+        @new_message << @message[index]
+        index += 1
+      end
+    end
+    @message = @new_message.compact
+  end
+
 end

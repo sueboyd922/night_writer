@@ -29,7 +29,6 @@ describe BrailleTranslator do
     expect(@translator.message[0].length).to eq(16)
   end
 
-
   it 'can group the message into braille letters' do
     @translator.breakdown("\n")
     @translator.account_for_multiple_lines
@@ -67,5 +66,12 @@ describe BrailleTranslator do
     @translator2.join_braille_pieces
     @translator2.translate
     expect(@translator2.printable_message).to eq("the quick brown fox jumps over the lazy dog")
+  end
+
+  it 'can deal with capitals' do
+    @translator3 = BrailleTranslator.new("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
+
+    @translator3.run
+    expect(@translator3.printable_message).to eq("HI Frodo")
   end
 end
