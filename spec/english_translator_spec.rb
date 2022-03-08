@@ -58,9 +58,15 @@ describe EnglishTranslator do
   end
 
   it 'can print in capitals' do
-    @translator2 = EnglishTranslator.new("HI Frodo")
-    @translator2.run
-    expect(@translator2.printable_message).to eq("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
+    translator2 = EnglishTranslator.new("HI Frodo")
+    translator2.run
+    expect(translator2.printable_message).to eq("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
+  end
+
+  it 'can print in numbers' do
+    translator2 = EnglishTranslator.new("12345")
+    translator2.run
+    expect(translator2.printable_message).to eq(".OO..OO..OOO.OOO.OO.\n.O...OO..O...O.O.O.O\nOO..OO..OO..OO..OO..\n\n")
   end
 
 end
