@@ -5,6 +5,7 @@ class NightDaddy
     @incoming_file = file
     @read_message = read_file.strip
     @new_file = create_new_file
+    @created_message = " "
     create_translator
     run
   end
@@ -32,11 +33,7 @@ class NightDaddy
 
   def new_message
     @translator.run
+    @created_message = @translator.printable_message
     @translator.printable_message
   end
-
-  def print_update
-    print "Created '#{ARGV[1]}' containing #{@read_message.length} characters"
-  end
-
 end

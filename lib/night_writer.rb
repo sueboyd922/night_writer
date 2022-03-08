@@ -8,4 +8,8 @@ class NightWriter < NightDaddy
     @translator = EnglishTranslator.new(@read_message)
   end
 
+  def print_update
+    print "Created '#{ARGV[1]}' containing #{@created_message.length / 6} Braille characters"
+  end
+
 end
