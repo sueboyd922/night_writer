@@ -28,7 +28,7 @@ describe NightWriter do
   end
 
   it 'tells you what has been created' do
-    expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 41 characters").to_stdout
+    expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 42 Braille characters").to_stdout
   end
 
   xit 'writes into the new file' do

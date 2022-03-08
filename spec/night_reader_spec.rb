@@ -28,7 +28,7 @@ describe NightReader do
   end
 
   it 'tells you what has been created' do
-    expect{@night_reader.print_update}.to output("Created './spec/test_files/braille_to_english_result.txt' containing 50 characters").to_stdout
+    expect{@night_reader.print_update}.to output("Created './spec/test_files/braille_to_english_result.txt' containing 8 English characters").to_stdout
   end
 
   xit 'writes to a new file' do

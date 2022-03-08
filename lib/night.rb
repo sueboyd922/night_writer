@@ -24,7 +24,7 @@ class NightDaddy
   end
 
   def create_new_file
-    File.open(ARGV[1], 'w+')
+    File.open(ARGV[1], 'w')
   end
 
   def write_to_new_file
