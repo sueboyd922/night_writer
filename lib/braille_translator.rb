@@ -14,8 +14,9 @@ class BrailleTranslator < Translator
     num_of_letters
     group_braille
     join_braille_pieces
-    nums_and_caps(".....O")
-    nums_and_caps(".O.OOO")
+    nums_and_caps
+    # nums_and_caps(".....O")
+    # nums_and_caps(".O.OOO")
     translate
   end
 
@@ -57,11 +58,11 @@ class BrailleTranslator < Translator
     @message = @letters.map{|line| line.join}
   end
 
-  def nums_and_caps(search)
+  def nums_and_caps
     new_message = []
     index = 0
     @message.count.times do
-      if @message[index] == search && !@message[index + 1].nil?
+      if (@message[index] == ".O.OOO" || @message[index] == ".....O") && !@message[index + 1].nil?
         new_message << (@message[index] + @message[index + 1])
         index += 2
       else
