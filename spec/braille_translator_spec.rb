@@ -69,9 +69,15 @@ describe BrailleTranslator do
   end
 
   it 'can deal with capitals' do
-    @translator3 = BrailleTranslator.new("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
+    translator3 = BrailleTranslator.new("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
 
-    @translator3.run
-    expect(@translator3.printable_message).to eq("HI Frodo")
+    translator3.run
+    expect(translator3.printable_message).to eq("HI Frodo")
+  end
+
+  it 'can deal with numbers' do
+    translator3 = BrailleTranslator.new(".OO..OO..OOO.OOO.OO.\n.O...OO..O...O.O.O.O\nOO..OO..OO..OO..OO..\n\n")
+    translator3.run
+    expect(translator3.printable_message).to eq("12345")
   end
 end

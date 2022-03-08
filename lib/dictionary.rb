@@ -67,6 +67,9 @@ class Dictionary
 
   def lookup(letter)
     new_letter = @info[letter]
+    if letter.length == 12 && letter[0..5] == ".....O"
+      new_letter = @info[letter[6..11]].upcase
+    end
     if letter.length == 1 && !punctuation(letter) && !number(letter)
       new_letter = ".....O" + @info[letter.downcase] if is_upcase?(letter)
     end

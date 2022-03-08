@@ -31,7 +31,7 @@ describe NightWriter do
     expect{@night_writer.print_update}.to output("Created './spec/test_files/new_test_message.txt' containing 41 characters").to_stdout
   end
 
-  it 'writes into the new file' do
+  xit 'writes into the new file' do
     created_file = File.open(@night_writer.new_file, 'r')
     new_message = created_file.read
     expect(new_message).to eq(".OO..O.O...O.O..O.OOO..OO.O.O...OOO.O..OO.OO.O...OO...OOO..OO.O...OOO...OOO.O.O.\nOOOOO.O...O.O......O.OOOOO.OOO..O.OO.OOO.O..OO..OO.O...OOOO.O..O.....O....OO...O\nO.....O.....O.....O.O.O.....O...O.O.O.......O...O.O.....O...OO....O.......O...OO\n\nOO\n.O\nOO\n\n")
