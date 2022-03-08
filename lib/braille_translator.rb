@@ -15,8 +15,6 @@ class BrailleTranslator < Translator
     group_braille
     join_braille_pieces
     nums_and_caps
-    # nums_and_caps(".....O")
-    # nums_and_caps(".O.OOO")
     translate
   end
 

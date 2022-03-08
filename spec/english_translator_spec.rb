@@ -34,7 +34,7 @@ describe EnglishTranslator do
     @translator.breakdown("")
     @translator.translate
     @translator.split_braille
-    # require "pry"; binding.pry
+
     expect(@translator.message[0].class).to eq(Array)
     expect(@translator.message[0].count).to eq(21)
     expect(@translator.message[1].class).to eq(Array)
@@ -68,5 +68,4 @@ describe EnglishTranslator do
     translator2.run
     expect(translator2.printable_message).to eq(".OO..OO..OOO.OOO.OO.\n.O...OO..O...O.O.O.O\nOO..OO..OO..OO..OO..\n\n")
   end
-
 end

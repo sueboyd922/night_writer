@@ -1,8 +1,8 @@
 require 'pry'
 require './lib/braille_translator'
-require './lib/night_helper'
+require './lib/night'
 
-class NightReader < Night
+class NightReader < NightDaddy
 
   def create_translator
     @translator = BrailleTranslator.new(@read_message)

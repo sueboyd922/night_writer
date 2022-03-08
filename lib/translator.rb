@@ -23,5 +23,4 @@ class Translator
   def printable_message
     @message.flatten.join
   end
-
 end
