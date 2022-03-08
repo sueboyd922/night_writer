@@ -44,16 +44,27 @@ class Dictionary
       "x" => "OO..OO",
       "y" => "OO.OOO",
       "z" => "O..OOO",
-      " " => "......"
+      " " => "......",
+      "," => "..O...",
+      "." => "..OO.O",
+      "!" => "..OOO.",
+      "&" => "OOO.OO",
+      "?" => "..O.OO",
+      "'" => "....O."
     }
   end
 
   def lookup(letter)
     new_letter = @info[letter]
-    if letter.length == 1 && letter != " "
+    if letter.length == 1 && !punctuation(letter)
       new_letter = ".....O" + @info[letter.downcase] if is_upcase?(letter)
     end
     new_letter
+  end
+
+  def punctuation(letter)
+    punc_symbols = ["?", " ", ",", ".", "!", "&", "'"]
+    punc_symbols.include?(letter)
   end
 
   def is_upcase?(letter)

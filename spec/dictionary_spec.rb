@@ -51,4 +51,9 @@ describe Dictionary do
     expect(@dictionary.lookup("A")).to eq(".....OO.....")
     expect(@dictionary.lookup("X")).to eq(".....OOO..OO")
   end
+
+  it 'can work with punctuation' do
+    expect(@dictionary.lookup("?")).to eq("..O.OO")
+    expect(@dictionary.lookup(".")).to eq("..OO.O")
+  end
 end
