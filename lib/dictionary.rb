@@ -50,13 +50,24 @@ class Dictionary
       "!" => "..OOO.",
       "&" => "OOO.OO",
       "?" => "..O.OO",
-      "'" => "....O."
+      "'" => "....O.",
+      "1" => ".O.OOOO.....",
+      "2" => ".O.OOOO.O...",
+      "3" => ".O.OOOOO....",
+      "4" => ".O.OOOOO.O..",
+      "5" => ".O.OOOO..O..",
+      "6" => ".O.OOOOOO...",
+      "7" => ".O.OOOOOOO..",
+      "8" => ".O.OOOO.OO..",
+      "9" => ".O.OOO.OO...",
+      "0" => ".O.OOO.OOO..",
+      "num" => ".O.OOO"
     }
   end
 
   def lookup(letter)
     new_letter = @info[letter]
-    if letter.length == 1 && !punctuation(letter)
+    if letter.length == 1 && !punctuation(letter) && !number(letter)
       new_letter = ".....O" + @info[letter.downcase] if is_upcase?(letter)
     end
     new_letter
@@ -67,8 +78,12 @@ class Dictionary
     punc_symbols.include?(letter)
   end
 
+  def number(letter)
+    numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+    numbers.include?(letter)
+  end
+
   def is_upcase?(letter)
     letter == letter.upcase
   end
-
 end

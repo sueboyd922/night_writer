@@ -56,4 +56,9 @@ describe Dictionary do
     expect(@dictionary.lookup("?")).to eq("..O.OO")
     expect(@dictionary.lookup(".")).to eq("..OO.O")
   end
+
+  it 'can work with numbers' do
+    expect(@dictionary.lookup("2")).to eq(".O.OOOO.O...")
+    expect(@dictionary2.lookup(".O.OOOO..O..")).to eq("5")
+  end
 end
