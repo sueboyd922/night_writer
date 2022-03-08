@@ -50,7 +50,7 @@ class Dictionary
 
   def lookup(letter)
     new_letter = @info[letter]
-    if letter.length == 1
+    if letter.length == 1 && letter != " "
       new_letter = ".....O" + @info[letter.downcase] if is_upcase?(letter)
     end
     new_letter

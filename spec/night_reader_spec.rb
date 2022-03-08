@@ -34,6 +34,7 @@ describe NightReader do
   it 'writes to a new file' do
     created_file = File.open(@night_reader.new_file, 'r')
     new_message = created_file.read
+    require "pry"; binding.pry
     expect(new_message).to eq("potatoes")
   end
 

@@ -16,8 +16,21 @@ class EnglishTranslator < Translator
     set_message_to_letters
   end
 
+  def for_capitals
+    for_capitals = []
+    @message.each do |line|
+      if line.length > 6
+        for_capitals << line.chars[0..5].join
+        for_capitals << line.chars[6..11].join
+      else
+        for_capitals << line
+      end
+    end
+    for_capitals
+  end
+
   def split_braille
-    @message.each do |braille|
+    for_capitals.each do |braille|
       @top << braille[0..1]
       @middle << braille[2..3]
       @bottom << braille[4..5]

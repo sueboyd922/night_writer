@@ -67,4 +67,11 @@ describe BrailleTranslator do
     @translator2.translate
     expect(@translator2.printable_message).to eq("the quick brown fox jumps over the lazy dog")
   end
+
+  it 'can deal with capitals' do
+    @translator3 = BrailleTranslator.new("..O....O....OOO.O.OOO.\n..OO..O.....O.OO.O.O.O\n.O...O.....O..O.O...O.\n\n")
+
+    @translator3.run
+    expect(@translator3.printable_message).to eq("HI Frodo")
+  end
 end
