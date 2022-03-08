@@ -1,5 +1,5 @@
 class NightDaddy
-  attr_reader :file, :read_message, :new_file
+  attr_reader :file, :read_message, :new_file, :created_message
 
   def initialize(file)
     @incoming_file = file

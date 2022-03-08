@@ -31,9 +31,9 @@ describe NightReader do
     expect{@night_reader.print_update}.to output("Created './spec/test_files/braille_to_english_result.txt' containing 8 English characters").to_stdout
   end
 
-  xit 'writes to a new file' do
-    created_file = File.open(@night_reader.new_file, 'r')
-    new_message = created_file.read
-    expect(new_message).to eq("potatoes")
+  it 'writes to a new file' do
+    # created_file = File.open(@night_reader.new_file, 'r')
+    # new_message = created_file.read
+    expect(@night_reader.created_message).to eq("potatoes")
   end
 end
