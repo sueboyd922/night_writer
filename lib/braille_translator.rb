@@ -14,7 +14,6 @@ class BrailleTranslator < Translator
     num_of_letters
     group_braille
     join_braille_pieces
-    # require "pry"; binding.pry
     nums_and_caps(".....O")
     nums_and_caps(".O.OOO")
     translate
@@ -58,21 +57,6 @@ class BrailleTranslator < Translator
     @message = @letters.map{|line| line.join}
   end
 
-  # def capitals
-  #   @new_message = []
-  #   index = 0
-  #   (@message.count).times do
-  #     if @message[index] == nil && !@message[index + 1].nil?
-  #       @new_message << @message[index + 1].upcase
-  #       index += 2
-  #     else
-  #       @new_message << @message[index]
-  #       index += 1
-  #     end
-  #   end
-  #   @message = @new_message.compact
-  # end
-
   def nums_and_caps(search)
     new_message = []
     index = 0
@@ -87,27 +71,4 @@ class BrailleTranslator < Translator
     end
     @message = new_message.compact
   end
-
-  # def capitalize
-  #   @message[index + 1].upcase
-  # end
-  #
-  # def number
-  #   (@message[index] + @message[index + 1])
-  # end
-
-  # def numbers
-  #   new_message = []
-  #   index = 0
-  #   (@message.count).times do
-  #     if @message[index] == ".O.OOO" && !@message[index + 1].nil?
-  #       new_message << (@message[index] + @message[index + 1])
-  #       index += 2
-  #     else
-  #       new_message << (@message[index])
-  #       index += 1
-  #     end
-  #   end
-  #   @message = new_message.compact
-  # end
 end

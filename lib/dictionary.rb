@@ -51,6 +51,10 @@ class Dictionary
       "&" => "OOO.OO",
       "?" => "..O.OO",
       "'" => "....O.",
+      "(" => "O.OOOO",
+      ")" => ".OOOOO",
+      "-" => "....OO",
+      "/" => ".O..O.",
       "1" => ".O.OOOO.....",
       "2" => ".O.OOOO.O...",
       "3" => ".O.OOOOO....",
@@ -61,7 +65,6 @@ class Dictionary
       "8" => ".O.OOOO.OO..",
       "9" => ".O.OOO.OO...",
       "0" => ".O.OOO.OOO..",
-      "num" => ".O.OOO"
     }
   end
 
@@ -77,7 +80,7 @@ class Dictionary
   end
 
   def punctuation(letter)
-    punc_symbols = ["?", " ", ",", ".", "!", "&", "'"]
+    punc_symbols = ["?", " ", ",", ".", "!", "&", "'", "(", ")", "-", "/"]
     punc_symbols.include?(letter)
   end
 
